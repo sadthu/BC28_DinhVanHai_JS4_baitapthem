@@ -14,6 +14,7 @@
                         - tạo 1 swith..case để gán vào số ngày tháng trước đó cho tháng sau bằng biến soNgayS
                         - newDay = soNgayS; newMonth = month - 1;
                     + (day === 1) && (month === 1) --> newDay = soNgay; newMonth = 12; newYear = year - 1;
+    output: newDay, newMonth, newYear
 */  
 keTiep.onclick = function () {
     var day = +document.getElementById('day').value;
@@ -124,4 +125,30 @@ truocDo.onclick = function (){
         newYear = 0;
     }
     document.getElementById('ketQua1').innerHTML = newDay +'-'+ newMonth +'-'+ newYear;
+}
+
+// bài tập 2
+tinhNgay.onclick = function(){
+    var month = +document.getElementById('nhapThang').value;
+    var year = +document.getElementById('nhapNam').value;
+    var soNgay = 0;
+    switch (month) {
+        case 1: case 3: case 5: case 7: case 8: case 10: case 12: {
+            soNgay = 31;
+        } break;
+        case 4: case 6: case 9: case 11: {
+            soNgay = 30;
+        } break;
+        case 2: {
+            if ((((year % 4) === 0) && (year % 100 !== 0)) || ((year % 400) === 0)) {
+                soNgay = 29;
+            }else {
+                soNgay = 28;
+            }
+        } break;
+        default: {
+            soNgay = 0;
+        }
+    }
+    document.getElementById('ketQua2').innerHTML = 'tháng ' + month +' '+ 'năm ' + year + ' ' + 'có ' + soNgay + ' ngày';
 }
