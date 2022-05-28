@@ -284,3 +284,36 @@ docSo.onclick = function () {
     }
     document.getElementById('ketQua3').innerHTML = docSo1 + ' ' + docSo2 + ' ' + docSo3;
 }
+
+// bài tập 4
+/*
+    input:  tên và tọa độ x, y của 3 sinh viên và tọa độ trường học
+    progess:    tạo 3 biến chứa tên 3 sinh viên, 4 biến chứa tọa độ x, 4 biến chứa tọa độ y, 3 biến tính khoảng cách của 3 sinh viên tới trường học
+                tính khoảng cách: d = Math.sqrt((x2-x1)*(x2-x1) + (y2-y1) * (y2-y1))
+    output: tên sinh viên cách trường xa nhất
+*/
+tinhD.onclick = function (){
+    var tenSinhVien1 = document.getElementById('sv1').value;
+    var toaDoX1 = +document.getElementById('x1').value;
+    var toaDoY1= +document.getElementById('y1').value;
+    var tenSinhVien2 = document.getElementById('sv2').value;
+    var toaDoX2 = +document.getElementById('x2').value;
+    var toaDoY2= +document.getElementById('y2').value;
+    var tenSinhVien3 = document.getElementById('sv3').value;
+    var toaDoX3 = +document.getElementById('x3').value;
+    var toaDoY3= +document.getElementById('y3').value;
+    var xTruong = +document.getElementById('xTruong').value;
+    var yTruong = +document.getElementById('yTruong').value;
+    var d1 = Math.sqrt((xTruong-toaDoX1)*(xTruong-toaDoX1)+(yTruong-toaDoY1)*(yTruong-toaDoY1));
+    var d2 = Math.sqrt((xTruong-toaDoX2)*(xTruong-toaDoX2)+(yTruong-toaDoY2)*(yTruong-toaDoY2));
+    var d3 = Math.sqrt((xTruong-toaDoX3)*(xTruong-toaDoX3)+(yTruong-toaDoY3)*(yTruong-toaDoY3));
+    var soSanh = '';
+    if (d1 > d2 && d1 > d3) {
+        soSanh = tenSinhVien1;
+    }else if (d2 > d1 && d2 > d3) {
+        soSanh = tenSinhVien2;
+    }else {
+        soSanh = tenSinhVien3
+    }
+    document.getElementById('ketQua4').innerHTML = 'sinh viên xa nhất trường: ' + soSanh;
+}
